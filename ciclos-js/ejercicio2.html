@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabla de multiplicar</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 700px; margin: 2rem auto; padding: 0 1rem; line-height: 1.5; }
+    header a { color: #1a73e8; text-decoration: none; }
+    section { margin: 1.5rem 0; padding: 1rem; background: #f8fafc; border-radius: 8px; }
+    label { display: block; margin-bottom: 0.5rem; font-weight: 500; }
+    input { width: 100%; padding: 0.5rem; }
+    button { margin-top: 0.75rem; padding: 0.6rem 1.2rem; background: #1a73e8; color: white; border: none; border-radius: 6px; cursor: pointer; }
+    ul { padding-left: 1.2rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html">← Volver al menú</a>
+    <h1>Ejercicio 2: Tabla de multiplicar</h1>
+    <p>for · Contadores</p>
+  </header>
+  <main>
+    <section id="enunciado">
+      <h2>Enunciado</h2>
+      <p>Generar la tabla de multiplicar de un número del 1 al 10 usando un ciclo for.</p>
+    </section>
+    <section id="controles">
+      <form id="formulario">
+        <label for="numero">Número (1-12)</label>
+        <input type="number" id="numero" min="1" max="12" required value="5">
+        <button type="submit">Generar tabla</button>
+      </form>
+    </section>
+    <section id="resultado">
+      <h2>Resultados</h2>
+      <p id="mensaje">Aún no hay datos.</p>
+      <ul id="tabla"></ul>
+    </section>
+  </main>
+  <script src="js/ejercicio2.js"></script>
+</body>
+</html>
