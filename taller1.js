@@ -1,7 +1,7 @@
 // TALLER 1: Par o impar.
 
 // 1. Seleccionamos el formulario y el párrafo de resultados.
-let formulario = document.getElementById("formTaller1");
+let formulario = document.getElementById("formtaller1");
 let resultado = document.getElementById("resultado");
 
 // 2. Escuchamos el envío del formulario.
