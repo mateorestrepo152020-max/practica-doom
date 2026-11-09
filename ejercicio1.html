@@ -1,33 +1,43 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 1: Sumar dos números</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 1 · Suma de números positivos</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 700px; margin: 2rem auto; padding: 0 1rem; line-height: 1.5; }
+    header a { color: #1a73e8; text-decoration: none; }
+    section { margin: 1.5rem 0; padding: 1rem; background: #f8fafc; border-radius: 8px; }
+    label { display: block; margin-bottom: 0.5rem; font-weight: 500; }
+    textarea { width: 100%; padding: 0.5rem; font-family: monospace; }
+    button { margin-top: 0.75rem; padding: 0.6rem 1.2rem; background: #1a73e8; color: white; border: none; border-radius: 6px; cursor: pointer; }
+  </style>
 </head>
 <body>
-    <header>
-        <a href="index.html">&larr; Volver al inicio</a>
-        <h1>Ejercicio 1: Sumar dos números</h1>
-        <p>Evento click del botón con una función anónima.</p>
-    </header>
-
-    <main>
-        <form action="">
-            <label for="n1">Número 1:</label>
-            <input type="number" id="n1" step="any" required>
-
-            <label for="n2">Número 2:</label>
-            <input type="number" id="n2" step="any" required>
-
-            <div class="botones">
-                <input type="submit" value="Aceptar" id="botonSumar">
-                <input type="reset" value="Cancelar">
-            </div>
-        </form>
-    </main>
-
-    <script src="ejercicio1.js"></script>
+  <header>
+    <a href="index.html">← Volver al menú</a>
+    <h1>Ejercicio 1: Suma de números positivos</h1>
+    <p>while · Acumuladores · Validación</p>
+  </header>
+  <main>
+    <section id="enunciado">
+      <h2>Enunciado</h2>
+      <p>Leer una lista de números. Sumar solo los positivos. Detenerse cuando se encuentre un cero o un valor no numérico. Mostrar la suma y la cantidad de números válidos sumados.</p>
+    </section>
+    <section id="controles">
+      <form id="formulario">
+        <label for="entrada">Números separados por comas (termina con 0)</label>
+        <textarea id="entrada" rows="3" required placeholder="10, 25, -5, 8, 0"></textarea>
+        <button type="submit">Calcular</button>
+      </form>
+    </section>
+    <section id="resultado">
+      <h2>Resultados</h2>
+      <p id="mensaje">Aún no hay datos.</p>
+      <p>Suma: <strong id="suma">—</strong></p>
+      <p>Cantidad de positivos: <strong id="cantidad">—</strong></p>
+    </section>
+  </main>
+  <script src="js/ejercicio1.js"></script>
 </body>
 </html>

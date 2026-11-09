@@ -1,24 +1,27 @@
+// ejercicio1.js - Suma de números positivos
+const formulario = document.getElementById("formulario");
+const mensaje = document.getElementById("mensaje");
+const sumaTexto = document.getElementById("suma");
+const cantidadTexto = document.getElementById("cantidad");
 
-document.getElementById("botonSumar").addEventListener("click", function (event) {
+formulario.addEventListener("submit", function(e) {
+  e.preventDefault();
+  const valores = document.getElementById("entrada").value.split(",").map(s => s.trim());
+  let suma = 0;
+  let cantidad = 0;
+  let i = 0;
 
-    event.preventDefault();
-
-    
-    let valor1 = parseFloat(document.getElementById("n1").value);
-    let valor2 = parseFloat(document.getElementById("n2").value);
-
-    
-    if (isNaN(valor1) || isNaN(valor2)) {
-
-        // Mostramos un mensaje para solicitar que se ingresen los dos números.
-        alert("Escribe los dos números.");
-
-        // Detenemos la ejecución de la función para evitar continuar.
-        return;
-
-    } else {
-
-        // Sumamos los dos valores y mostramos el resultado en una ventana emergente.
-        alert(`Suma: ${valor1 + valor2}`);
+  while (i < valores.length) {
+    const n = parseFloat(valores[i]);
+    if (Number.isNaN(n) || n === 0) break;
+    if (n > 0) {
+      suma += n;
+      cantidad++;
     }
+    i++;
+  }
+
+  mensaje.textContent = "Cálculo terminado.";
+  sumaTexto.textContent = suma.toFixed(2);
+  cantidadTexto.textContent = cantidad;
 });

@@ -1,28 +1,20 @@
-// EJERCICIO 2: Uso de una función con nombre y el evento click.
+// ejercicio2.js - Tabla de multiplicar
+const formulario = document.getElementById("formulario");
+const mensaje = document.getElementById("mensaje");
+const tabla = document.getElementById("tabla");
 
-// Seleccionamos el botón mediante su id y lo guardamos en una variable.
-let botonRestar = document.getElementById("botonRestar");
-
-// Le asignamos el evento click y la función que debe ejecutar cuando ocurra.
-botonRestar.addEventListener("click", resta);
-
-// Declaramos una función con nombre que recibe el objeto event.
-// Este objeto proporciona información sobre el evento que ocurrió.
-function resta(event) {
-
-    event.preventDefault();
-
-    // parseFloat() admite decimales (a diferencia de parseInt(), que los recorta)
-    // y da NaN si el campo está vacío.
-    let valor1 = parseFloat(document.getElementById("num1").value);
-    let valor2 = parseFloat(document.getElementById("num2").value);
-
-    if (isNaN(valor1) || isNaN(valor2)) {
-        alert("Escribe los dos números.");
-        return;
-
-    } else {
-        let resultado = valor1 - valor2;
-        alert(`Resta: ${resultado}`);
-    }
-}
+formulario.addEventListener("submit", function(e) {
+  e.preventDefault();
+  const n = parseInt(document.getElementById("numero").value, 10);
+  if (Number.isNaN(n) || n < 1) {
+    mensaje.textContent = "Número inválido.";
+    return;
+  }
+  tabla.innerHTML = "";
+  for (let i = 1; i <= 10; i++) {
+    const li = document.createElement("li");
+    li.textContent = `${n} × ${i} = ${n * i}`;
+    tabla.appendChild(li);
+  }
+  mensaje.textContent = `Tabla del ${n}`;
+});

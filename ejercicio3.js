@@ -1,21 +1,31 @@
-// EJERCICIO 3: Uso de una función anónima y el evento submit del formulario.
+// ejercicio3.js - Promedio de notas (descarta inválidas)
+const formulario = document.getElementById("formulario");
+const mensaje = document.getElementById("mensaje");
+const validasTexto = document.getElementById("validas");
+const promedioTexto = document.getElementById("promedio");
 
-// Seleccionamos el formulario (no el botón) porque escuchamos su evento submit.
-// El evento submit se dispara al presionar "Aceptar" o al pulsar Enter en un campo.
-document.getElementById("formulario").addEventListener("submit", function (event) {
+formulario.addEventListener("submit", function(e) {
+  e.preventDefault();
+  const valores = document.getElementById("entrada").value.split(",").map(s => s.trim());
+  let suma = 0;
+  let validas = 0;
 
-    // Evitamos que el formulario se envíe y la página se recargue.
-    event.preventDefault();
-
-    let valor1 = parseFloat(document.getElementById("num1").value);
-    let valor2 = parseFloat(document.getElementById("num2").value);
-
-    if (isNaN(valor1) || isNaN(valor2)) {
-        alert("Escribe los dos números.");
-        return;
-
-    } else {
-        let resultado = valor1 * valor2;
-        alert(`Multiplicación: ${resultado}`);
+  for (let i = 0; i < valores.length; i++) {
+    const n = parseFloat(valores[i]);
+    if (!Number.isNaN(n) && n >= 0 && n <= 10) {
+      suma += n;
+      validas++;
     }
+    // las inválidas se descartan (no se vuelven a pedir)
+  }
+
+  if (validas === 0) {
+    mensaje.textContent = "No hay notas válidas.";
+    validasTexto.textContent = "0";
+    promedioTexto.textContent = "—";
+  } else {
+    mensaje.textContent = "Promedio calculado (notas inválidas descartadas).";
+    validasTexto.textContent = validas;
+    promedioTexto.textContent = (suma / validas).toFixed(2);
+  }
 });
